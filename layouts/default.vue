@@ -4,18 +4,12 @@ const drawer = ref<boolean>(false);
 
 <template>
 	<div>
-		<v-app>
-			<v-toolbar app>
-				<v-navigation-drawer app v-if="drawer"> </v-navigation-drawer>
-				<v-app-bar-nav-icon @click="drawer = !drawer"> </v-app-bar-nav-icon>
-				<v-toolbar-title> Paude Udi </v-toolbar-title>
-			</v-toolbar>
-			<v-main>
-				<NuxtPage>
-					<slot />
-				</NuxtPage>
-			</v-main>
-		</v-app>
+		<v-toolbar app>
+			<v-navigation-drawer app v-if="drawer"> </v-navigation-drawer>
+			<v-app-bar-nav-icon @click="drawer = !drawer"> </v-app-bar-nav-icon>
+			<v-toolbar-title> Paude Udi </v-toolbar-title>
+		</v-toolbar>
+		<slot />
 	</div>
 </template>
 
