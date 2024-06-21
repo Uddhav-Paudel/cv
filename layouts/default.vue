@@ -11,7 +11,9 @@ const drawer = ref<boolean>(false);
 				<v-toolbar-title> Paude Udi </v-toolbar-title>
 			</v-toolbar>
 			<v-main>
-				<NuxtPage> </NuxtPage>
+				<NuxtPage>
+					<slot />
+				</NuxtPage>
 			</v-main>
 		</v-app>
 	</div>
