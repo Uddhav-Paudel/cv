@@ -4,7 +4,7 @@ const drawer = ref<boolean>(false);
 
 <template>
 	<div>
-		<v-toolbar app>
+		<v-toolbar>
 			<v-navigation-drawer app v-if="drawer"> </v-navigation-drawer>
 			<v-app-bar-nav-icon @click="drawer = !drawer"> </v-app-bar-nav-icon>
 			<v-toolbar-title> Paude Udi </v-toolbar-title>
