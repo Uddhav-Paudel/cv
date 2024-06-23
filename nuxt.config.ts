@@ -10,6 +10,19 @@ export default defineNuxtConfig({
   features: {
     inlineStyles: false
   },
+  app:{
+    head:{
+      title: 'Uddhav Paudel',
+      link:[
+        { rel: 'icon', type: 'image/x-icon', href: '/logo_white.svg' },
+      ],
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: 'Portfolio Of Software Developer: Uddhav Paudel' }
+      ],
+    }
+  },
   vuetify:{
     
     moduleOptions:{
