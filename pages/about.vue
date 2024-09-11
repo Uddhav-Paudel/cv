@@ -2,7 +2,7 @@
 
 <template>
 	<div>
-		<v-card class="mx-auto" max-width="500px">
+		<v-card class="mx-auto" max-width="800px">
 			<v-text>
 				<p class="text-center">
 					I hold a Master's in Information Technology from London and a
@@ -27,8 +27,7 @@
           Currently, I am developing Progressive Web App
 					<h5>(PWA)</h5> using Node.js, Laravel, and Vue 3 (Vuetify 3). I am known for
 					my versatility, reliability, with a business mindset, consistently
-					delivering effective solutions across diverse industries. Please
-					request my CV for more detailed information.
+					delivering effective solutions across diverse industries.
 				</p>
 			</v-text>
 		</v-card>
