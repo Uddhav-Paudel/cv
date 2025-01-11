@@ -11,9 +11,17 @@ const { height } = useDisplay();
 				src="logo_black.svg"
 				:height="height - 100"
 				contain
+				transition="scale-transition"
 			>
 				<v-list-item-title class="d-flex justify-end">
-					<v-btn>Software Develoer</v-btn>
+					<v-btn size="default">
+						<template #default>
+							<div class="d-flex flex-column">
+								<strong> Software Engineer </strong>
+								<span class="text-lowercase">info@aone-solution.com</span>
+							</div>
+						</template>
+					</v-btn>
 				</v-list-item-title>
 			</v-img>
 			<!-- </template> -->

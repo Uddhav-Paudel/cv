@@ -1,37 +1,79 @@
-<script setup lang="ts"></script>
-
 <template>
-	<div>
-		<v-card class="mx-auto" max-width="800px">
-			<v-text>
-				<p class="text-center">
-					I hold a Master's in Information Technology from London and a
-					Bachelor's in Computer Engineering, along with a Proficiency
-					Certificate in Science. My academic journey was driven by a strong
-					interest in <em>Mathematics and Programming</em>.
-					<br />
-					<strong><h3>Professionally</h3></strong>, I have extensive experience
-					in developing <em><h4>SaaS platform</h4></em> for the TIA (Testing,
-					Inspection, and Approval) business domains. My roles included
-					application solution developer and project lead, where I led a team in
-					handling frontend applications, backend builders, and web APIs,
-					directly solving business problems and use cases. <br/>
-          During my <em>Master's</em>,	I expanded my expertise to multiple business domains, including
-					eCommerce and data analysis. Successfully completed dissertation on topic
-					<strong
-						><em
-							>"Popularity of Categories and Its Evaluation and Uses in
-							ecommerce market"
-						</em> </strong
-					>, leveraging Python. <br/>
-          Currently, I am developing Progressive Web App
-					<h5>(PWA)</h5> using Node.js, Laravel, and Vue 3 (Vuetify 3). I am known for
-					my versatility, reliability, with a business mindset, consistently
-					delivering effective solutions across diverse industries.
-				</p>
-			</v-text>
+	<v-container class="pa-2">
+		<v-card class="mx-auto" color="" flat="true">
+			<v-card-title class="text-center font-weight-bold">
+				Professional Summary
+			</v-card-title>
+			<v-divider></v-divider>
+
+			<v-card-text>
+				<v-row>
+					<v-col cols="12" md="4" class="text-center">
+						<v-icon size="48" color="primary">mdi-school</v-icon>
+						<h3 class="font-weight-bold mt-2">Education</h3>
+						<p>
+							<strong>Master’s in Information Technology</strong> - London<br />
+							<strong>Bachelor’s in Computer Engineering</strong><br />
+							Proficiency Certificate in Science
+						</p>
+					</v-col>
+
+					<v-col cols="12" md="8" class="d-flex flex-column">
+						<div class="d-flex">
+							<v-icon size="24" color="primary" class="mr-2"
+								>mdi-code-braces</v-icon
+							>
+							<div>
+								<strong>SaaS PRODUCT development</strong><br />
+								I have worked extensively in the TIA (Testing, Inspection, and
+								Approval) business domains as an application developer. Led
+								teams to build services and functionalities for following
+								<strong> domains</strong>.
+								<i>
+									Manufacturing, Construction, Automotive, Oil & Gas, Food &
+									Beverage.
+								</i>
+							</div>
+						</div>
+
+						<v-divider class="my-4"></v-divider>
+
+						<div class="d-flex">
+							<v-icon size="24" color="primary" class="mr-2"
+								>mdi-chart-line</v-icon
+							>
+							<div>
+								<strong>Master's Dissertation</strong><br />
+								Completed a dissertation titled
+								<i
+									>"Popularity of Categories and Its Evaluation and Uses in the
+									eCommerce Market"</i
+								>
+								using Python.
+							</div>
+						</div>
+
+						<v-divider class="my-4"></v-divider>
+						<div class="d-flex">
+							<v-icon size="24" color="primary" class="mr-2">mdi-web</v-icon>
+							<div>
+								<strong>Current Focus & Interest</strong><br />
+								Progressive Web Apps (PWA) using Vue 3 (Vuetify 3).
+							</div>
+						</div>
+					</v-col>
+				</v-row>
+			</v-card-text>
 		</v-card>
-	</div>
+	</v-container>
 </template>
 
-<style scoped></style>
+<script lang="ts" setup></script>
+
+<style scoped lang="scss">
+.v-card-title {
+	background-color: #fff;
+	color: var(--up-custom-bg-color);
+	padding: 16px;
+}
+</style>

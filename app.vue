@@ -2,7 +2,5 @@
 const drawer = ref<boolean>(false);
 </script>
 <template>
-	<div>
-		<NuxtLayout> </NuxtLayout>
-	</div>
+	<NuxtLayout> </NuxtLayout>
 </template>

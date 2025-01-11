@@ -11,22 +11,22 @@ const { mobile } = useDisplay();
 					<v-icon :icon="drawer ? 'mdi-window-close' : 'mdi-menu'"> </v-icon>
 				</v-app-bar-nav-icon>
 				<v-list-item to="/">
-					<v-toolbar-title> Uddhav Paudel </v-toolbar-title>
+					<v-toolbar-title class="font-weight-bold">
+						Uddhav Paudel
+					</v-toolbar-title>
 				</v-list-item>
 				<template #append>
 					<v-container>
 						<v-row v-if="!mobile">
 							<v-col cols="auto">
-								<v-list-item to="about"> About </v-list-item>
+								<v-list-item to="about" class="font-weight-bold">
+									About
+								</v-list-item>
 							</v-col>
 							<v-col cols="auto">
-								<v-list-item to="skill"> Skills </v-list-item>
-							</v-col>
-							<v-col cols="auto">
-								<v-list-item to="CV"> Portfolio </v-list-item>
-							</v-col>
-							<v-col cols="auto">
-								<v-list-item to="Contact"> Contact </v-list-item>
+								<v-list-item to="skill" class="font-weight-bold">
+									Skills
+								</v-list-item>
 							</v-col>
 						</v-row>
 					</v-container>
