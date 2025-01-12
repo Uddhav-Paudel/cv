@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   modules: ["vuetify-nuxt-module"],
   ssr:false,
   css:[
-    '~/assets/variables.scss'
+    '~/assets/variables.scss',
+    '~/assets/styles/global.css',
   ],
   /* For Nuxt 3.9.0+ */
   features: {
@@ -15,6 +16,10 @@ export default defineNuxtConfig({
       title: 'Uddhav Paudel',
       link:[
         { rel: 'icon', type: 'image/x-icon', href: '/logo_white.svg' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap',
+        },
       ],
       meta: [
         { charset: 'utf-8' },
@@ -43,7 +48,7 @@ export default defineNuxtConfig({
             colors:{
               background:'rgb(1, 21, 70)',
               surface:'rgb(1, 21, 70)',
-            }
+            },
           }
         }
       },

@@ -1,157 +1,156 @@
 <template>
-	<v-container class="pa-2">
-		<v-card class="mx-auto" flat="true">
-			<v-card-title class="text-center font-weight-bold">
-				Skills Overview
-			</v-card-title>
-			<v-divider></v-divider>
+	<v-container fluid>
+		<v-row align="center" justify="center" class="py-6">
+			<!-- Iterate over all the projects -->
+			<v-col
+				v-for="(project, index) in projects"
+				:key="index"
+				cols="12"
+				sm="6"
+				md="4"
+				class="d-flex justify-center"
+			>
+				<v-card elevation="3" class="ma-4" max-width="400">
+					<!-- Project Title -->
+					<v-card-title>{{ project.title }}</v-card-title>
 
-			<v-card-text>
-				<v-row>
-					<!-- Skill 1 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-laptop</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Vue 3</h3>
-							<p>
-								Proficient in Vue 3's Composition API, reactive data, and
-								component architecture for dynamic web apps.
-							</p>
-						</div>
-					</v-col>
+					<!-- Project Subtitle -->
+					<v-card-subtitle>{{ project.subtitle }}</v-card-subtitle>
 
-					<!-- Skill 2 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-palette</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Vuetify</h3>
-							<p>
-								Expert in crafting stunning, responsive UIs using Vuetify’s rich
-								component library and grid system.
-							</p>
-						</div>
-					</v-col>
+					<!-- Project Description -->
+					<v-card-text>{{ project.description }}</v-card-text>
 
-					<!-- Skill 3 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-router</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Vue Router & State Management</h3>
-							<p>
-								Skilled in routing with <strong>Vue Router</strong> and managing
-								state efficiently with <strong>Vuex</strong> and
-								<strong>Pinia</strong>.
-							</p>
+					<!-- Card Actions -->
+					<v-card-actions>
+						<v-spacer></v-spacer>
+						<!-- Visit Button -->
+						<v-btn v-if="!project.link" color="white" variant="outlined">
+							Contact For Preview
+						</v-btn>
+						<div v-else>
+							<v-btn
+								:href="project.link"
+								target="_blank"
+								color="white"
+								variant="outlined"
+							>
+								Visit
+							</v-btn>
+							<!-- Preview Button -->
+							<v-btn
+								color="secondary"
+								variant="outlined"
+								@click="openPreview(project.link)"
+							>
+								Preview
+							</v-btn>
 						</div>
-					</v-col>
+					</v-card-actions>
+				</v-card>
+			</v-col>
+		</v-row>
 
-					<!-- Skill 4 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-language-html5</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">HTML5, CSS3 & JavaScript (ES6+)</h3>
-							<p>
-								Strong core in modern web standards, ensuring fast and
-								accessible interfaces.
-							</p>
-						</div>
-					</v-col>
+		<!-- Dialog for Preview -->
+		<v-dialog
+			v-model="isDialogOpen"
+			fullscreen
+			hide-overlay
+			persistent
+			transition="dialog-bottom-transition"
+		>
+			<v-card class="d-flex flex-column align-stretch fill-height">
+				<!-- Dialog Header -->
+				<v-toolbar flat dense>
+					<v-spacer></v-spacer>
+					<v-btn icon @click="closePreview">
+						<v-icon color="white">mdi-close</v-icon>
+					</v-btn>
+				</v-toolbar>
 
-					<!-- Skill 5 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-cellphone</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Responsive Design</h3>
-							<p>
-								Building pixel-perfect, mobile-first designs using Vuetify's
-								flexible layout tools.
-							</p>
-						</div>
-					</v-col>
-
-					<!-- Skill 6 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-format-color-fill</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Custom Themes</h3>
-							<p>
-								Experienced in creating tailored themes and implementing dark
-								mode with Vuetify.
-							</p>
-						</div>
-					</v-col>
-
-					<!-- Skill 7 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-puzzle</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Component Reusability</h3>
-							<p>
-								Developing modular, reusable components for scalable,
-								maintainable code.
-							</p>
-						</div>
-					</v-col>
-
-					<!-- Skill 8 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-progress-download</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">PWA Development</h3>
-							<p>
-								Creating fast, offline-ready Progressive Web Apps with Vue 3.
-							</p>
-						</div>
-					</v-col>
-
-					<!-- Skill 9 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-api</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">API Integration</h3>
-							<p>
-								Seamless integration of RESTful services using
-								<strong>Axios</strong> and <strong>Fetch API</strong>.
-							</p>
-						</div>
-					</v-col>
-
-					<!-- Skill 10 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-tools</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Vue CLI & Vite</h3>
-							<p>
-								Efficient project setups and builds using
-								<strong>Vue CLI</strong> and <strong>Vite</strong> for optimized
-								performance.
-							</p>
-						</div>
-					</v-col>
-
-					<!-- Skill 11 -->
-					<v-col cols="12" md="6" class="d-flex align-center mb-4">
-						<v-icon size="32" color="primary">mdi-palette-outline</v-icon>
-						<div class="ml-3">
-							<h3 class="font-weight-bold">Modern UI/UX</h3>
-							<p>
-								Delivering clean, intuitive designs following the latest UI/UX
-								trends and material design principles.
-							</p>
-						</div>
-					</v-col>
-				</v-row>
-			</v-card-text>
-		</v-card>
+				<!-- Dialog Content (Iframe) -->
+				<v-card-text class="p-0 fill-height">
+					<iframe
+						v-if="previewLink"
+						:src="previewLink"
+						frameborder="0"
+						style="width: 100%; height: 100%; border: none"
+						allow="autoplay; encrypted-media"
+						allowfullscreen
+					></iframe>
+				</v-card-text>
+			</v-card>
+		</v-dialog>
 	</v-container>
 </template>
 
-<script lang="ts" setup></script>
+<script>
+export default {
+	data() {
+		return {
+			isDialogOpen: false, // Track dialog state
+			previewLink: null, // URL of the project being previewed
+			projects: [
+				{
+					title: "Weather Application",
+					subtitle: "Accurate, Localized, Up-to-date Forecasts",
+					description:
+						"A weather app that provides accurate, localized forecasts using the Open-Meteo API.",
+					link: "https://weather.aone-solution.com",
+				},
+				{
+					title: "eCommerce PWA Platform",
+					subtitle: "Fast, Offline, & Engaging Shopping",
+					description:
+						"A fully responsive eCommerce PWA with offline functionality and push notifications.",
+					link: "https://stage.aone-solution.com",
+				},
+				{
+					title: "Multimedia conversion tool.",
+					subtitle: "Text & Image to Video/Audio",
+					description:
+						"Tool for converting text into audio, images, and YouTube-ready videos.",
+					link: "https://youtube.com/embed/DDprlup8Z9U",
+				},
+				{
+					title: "AVIF to PNG Converter",
+					subtitle: "Convert AVIF images to PNG.",
+					description:
+						"A Python tool to convert AVIF images to PNG format for improved compatibility.",
+					link: "",
+				},
+				{
+					title: "Excel to Word Converter",
+					subtitle: "Automated conversion tool.",
+					description:
+						"Tool for converting Excel data into formatted Word documents automatically.",
+					link: "",
+				},
+				{
+					title: "Document Merger",
+					subtitle: "Merge Word documents.",
+					description:
+						"A Python script for merging multiple Word documents into one.",
+					link: "",
+				},
+			],
+		};
+	},
+	methods: {
+		openPreview(link) {
+			this.previewLink = link;
+			this.isDialogOpen = true;
+		},
+		closePreview() {
+			this.previewLink = null;
+			this.isDialogOpen = false;
+		},
+	},
+};
+</script>
 
-<style scoped lang="scss">
-.v-card-title {
-	background-color: #fff;
-	color: var(--up-custom-bg-color);
-	padding: 16px;
+<style scoped>
+/* Let iframe fill available space */
+.fill-height {
+	height: 100vh;
 }
 </style>

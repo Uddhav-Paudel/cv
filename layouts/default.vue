@@ -25,8 +25,16 @@ const { mobile } = useDisplay();
 							</v-col>
 							<v-col cols="auto">
 								<v-list-item to="skill" class="font-weight-bold">
-									Skills
+									Projects
 								</v-list-item>
+							</v-col>
+							<v-col cols="auto">
+								<v-list-item to="skillmatrix" class="font-weight-bold">
+									Skill Matrix
+								</v-list-item>
+							</v-col>
+							<v-col cols="auto">
+								<v-list-item to="cv" class="font-weight-bold"> CV </v-list-item>
 							</v-col>
 						</v-row>
 					</v-container>
