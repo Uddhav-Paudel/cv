@@ -3,11 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+     "clean": "rimraf dist",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages -d .output/public"
   },
   "dependencies": {
     "@tato30/vue-pdf": "^1.11.3",
