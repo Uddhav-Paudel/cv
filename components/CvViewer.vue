@@ -68,7 +68,7 @@ export default {
 	watch: {},
 	// Optionally, use `onMounted` to handle initialization
 	mounted() {
-		this.pdfUrl = "CV Uddhav.pdf";
+		this.pdfUrl = "Portfolio CV Uddhav.pdf";
 		const { pdf, pages } = usePDF(this.pdfUrl); // Use the usePDF hook to load the new PDF
 		this.pdf = pdf;
 		this.pages = pages;

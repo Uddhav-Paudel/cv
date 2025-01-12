@@ -24,7 +24,12 @@
 					<v-card-actions>
 						<v-spacer></v-spacer>
 						<!-- Visit Button -->
-						<v-btn v-if="!project.link" color="white" variant="outlined">
+						<v-btn
+							v-if="!project.link"
+							:href="'mailto:info@aone-solution.com?subject=Project%20Inquiry&body=Hello%20I%20would%20like%20to%20inquire%20about%20the%20project%20details.'"
+							color="white"
+							variant="outlined"
+						>
 							Contact For Preview
 						</v-btn>
 						<div v-else>
